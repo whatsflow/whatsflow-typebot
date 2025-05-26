@@ -82,6 +82,8 @@ export const BlockLabel = ({ type }: Props): JSX.Element => {
       return <Text>Combinar</Text>
     case LogicBlockType.AI_ASSISTANT:
       return <Text>Assistente IA</Text>
+    case LogicBlockType.TRANSCRIBE_AUDIO:
+      return <Text>Transcrever</Text>
     case LogicBlockType.SEND_FROM:
       return <Text style={{ whiteSpace: 'nowrap' }}>Enviar de</Text>
     case LogicBlockType.REMOVE_TAG:

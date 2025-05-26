@@ -59,6 +59,7 @@ import { PixelNodeBody } from '@/features/blocks/integrations/pixel/components/P
 import TemplateNodeContent from '@/features/blocks/logic/template/components/TemplateNodeContent'
 import SendFromNodeContent from '@/features/blocks/logic/sendFrom/components/SendFromNodeContent'
 import AiAssistantNodeContent from '@/features/blocks/logic/aiAssistant/components/AiAssistantNodeContent'
+import TranscribeAudioNodeContent from '@/features/blocks/logic/transcribeAudio/components/TranscribeAudioNodeContent'
 // import { PixelNodeBody } from '@/features/blocks/integrations/pixel/components/PixelNodeBody'
 
 type Props = {
@@ -193,6 +194,9 @@ export const BlockNodeContent = ({ block, indices }: Props): JSX.Element => {
 
     case LogicBlockType.AI_ASSISTANT:
       return <AiAssistantNodeContent options={block.options} />
+
+    case LogicBlockType.TRANSCRIBE_AUDIO:
+      return <TranscribeAudioNodeContent options={block.options} />
 
     case LogicBlockType.SEND_FROM:
       return <SendFromNodeContent options={block.options} />

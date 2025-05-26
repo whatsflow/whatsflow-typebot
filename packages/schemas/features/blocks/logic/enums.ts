@@ -17,4 +17,5 @@ export enum LogicBlockType {
   SEND_FROM = 'Send from',
   COMBINE_MESSAGES = 'Combine messages',
   AI_ASSISTANT = 'Ai assistant',
+  TRANSCRIBE_AUDIO = 'Transcribe audio',
 }

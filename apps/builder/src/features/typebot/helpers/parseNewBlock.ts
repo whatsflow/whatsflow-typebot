@@ -54,6 +54,7 @@ import {
   defaultSendFromOptions,
   defaultCombineMessagesOptions,
   defaultAiAssistantOptions,
+  defaultTranscribeAudioOptions,
 } from '@typebot.io/schemas'
 import { defaultFileBubbleContent } from '@typebot.io/schemas/features/blocks/bubbles/file'
 import { defaultPictureChoiceOptions } from '@typebot.io/schemas/features/blocks/inputs/pictureChoice'
@@ -149,6 +150,8 @@ const parseDefaultBlockOptions = (type: BlockWithOptionsType): BlockOptions => {
       return defaultCombineMessagesOptions
     case LogicBlockType.AI_ASSISTANT:
       return defaultAiAssistantOptions
+    case LogicBlockType.TRANSCRIBE_AUDIO:
+      return defaultTranscribeAudioOptions
     case LogicBlockType.SEND_FROM:
       return defaultSendFromOptions
     case LogicBlockType.TRANSFER:

@@ -198,6 +198,17 @@ export const executeGroup =
 
           continue
 
+        case LogicBlockType.TRANSCRIBE_AUDIO:
+          messages.push({
+            content: block.options,
+            id: block.id,
+            type: block.type,
+          })
+
+          lastBubbleBlockId = block.id
+
+          continue
+
         case LogicBlockType.AI_ASSISTANT: {
           const instructions = replaceVariablesInString(
             block.options.instructions

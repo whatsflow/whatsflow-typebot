@@ -56,6 +56,7 @@ import {
   sendFromBlockSchema,
   combineMessagesBlockSchema,
   aiAssistantBlockSchema,
+  transcribeAudioBlockSchema,
 } from './logic'
 import { conditionBlockSchema } from './logic/condition'
 import { endBlockSchema } from './logic/end'
@@ -156,6 +157,7 @@ export const blockSchema = z.discriminatedUnion('type', [
   endBlockSchema,
   buttonBlockSchema,
   pixelBlockSchema,
+  transcribeAudioBlockSchema,
 ])
 
 export type Block = z.infer<typeof blockSchema>

@@ -40,6 +40,9 @@ export const executeLogic =
       case LogicBlockType.AI_ASSISTANT:
         //@ts-ignore
         return null
+      case LogicBlockType.TRANSCRIBE_AUDIO:
+        //@ts-ignore
+        return null
       case LogicBlockType.SEND_FROM:
         //@ts-ignore
         return null
