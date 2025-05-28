@@ -16,6 +16,7 @@ import {
   waitForOptionsSchema,
   waitOptionsSchema,
   aiAssistantOptionsSchema,
+  transcribeAudioOptionsSchema,
 } from './blocks'
 import {
   audioBubbleContentSchema,
@@ -189,6 +190,11 @@ const aiAssistantSchema = z.object({
   ),
 })
 
+const transcribeAudioSchema = z.object({
+  type: z.enum([LogicBlockType.TRANSCRIBE_AUDIO]),
+  content: transcribeAudioOptionsSchema,
+})
+
 const waitForMessageSchema = z.object({
   type: z.enum([InputBlockType.WAIT_FOR]),
   content: waitForOptionsSchema,
@@ -240,6 +246,7 @@ const chatMessageSchema = z
       .or(endMessageSchema)
       .or(spreadMessageSchema)
       .or(templateMessageSchema)
+      .or(transcribeAudioSchema)
   )
 
 const scriptToExecuteSchema = z.object({

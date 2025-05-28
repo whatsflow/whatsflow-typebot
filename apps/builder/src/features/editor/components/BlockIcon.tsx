@@ -31,7 +31,7 @@ import { SetVariableIcon } from '@/features/blocks/logic/setVariable/components/
 import { TypebotLinkIcon } from '@/features/blocks/logic/typebotLink/components/TypebotLinkIcon'
 import { WaitIcon } from '@/features/blocks/logic/wait/components/WaitIcon'
 import { IoMdSend } from 'react-icons/io'
-import { FaUserEdit } from 'react-icons/fa'
+import { FaUserEdit, FaHeadphones } from 'react-icons/fa'
 import { Icon, IconProps, useColorModeValue } from '@chakra-ui/react'
 import { GiArtificialIntelligence } from 'react-icons/gi'
 import {
@@ -116,6 +116,8 @@ export const BlockIcon = ({ type, ...props }: BlockIconProps): JSX.Element => {
       return <Icon as={TiMessages} color={purple} {...props} />
     case LogicBlockType.AI_ASSISTANT:
       return <Icon as={GiArtificialIntelligence} color={purple} {...props} />
+    case LogicBlockType.TRANSCRIBE_AUDIO:
+      return <Icon as={FaHeadphones} color={purple} {...props} />
     case LogicBlockType.SEND_FROM:
       return <Icon as={IoMdSend} color={purple} {...props} />
     case LogicBlockType.REMOVE_TAG:

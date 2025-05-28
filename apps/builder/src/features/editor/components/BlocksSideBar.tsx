@@ -216,6 +216,11 @@ export const BlocksSideBar = () => {
             />
 
             <BlockCard
+              type={LogicBlockType.TRANSCRIBE_AUDIO}
+              onMouseDown={handleMouseDown}
+            />
+
+            <BlockCard
               type={LogicBlockType.TAG}
               onMouseDown={handleMouseDown}
             />

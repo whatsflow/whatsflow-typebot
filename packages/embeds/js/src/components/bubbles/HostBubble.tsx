@@ -13,6 +13,7 @@ import SpreadBubble from '@/features/blocks/bubbles/spread/components/SpreadBubb
 import TagBubble from '@/features/blocks/bubbles/tag/components/TagBubble'
 import TemplateBubble from '@/features/blocks/bubbles/template/components/TemplateBubble'
 import { TextBubble } from '@/features/blocks/bubbles/textBubble'
+import TranscribeAudioBubble from '@/features/blocks/bubbles/transcribeAudio/components/TranscribeAudioBubble'
 import TransferBubble from '@/features/blocks/bubbles/transfer/components/TransferBubble'
 import UpdateNameBubble from '@/features/blocks/bubbles/updateName/components/UpdateNameBubble/UpdateNameBubble'
 import { VideoBubble } from '@/features/blocks/bubbles/video'
@@ -125,6 +126,15 @@ export const HostBubble = (props: Props) => {
         return (
           <AiAssistantBubble
             assistant={props.message.content?.assistant}
+            typingEmulation={props.typingEmulation}
+            onTransitionEnd={onTransitionEnd}
+          />
+        )
+
+      case LogicBlockType.TRANSCRIBE_AUDIO:
+        return (
+          <TranscribeAudioBubble
+            active={props.message.content?.active}
             typingEmulation={props.typingEmulation}
             onTransitionEnd={onTransitionEnd}
           />
