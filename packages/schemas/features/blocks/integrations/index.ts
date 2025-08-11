@@ -1,4 +1,5 @@
 export * from './chatwoot'
+export * from './crmWhatsflow'
 export * from './enums'
 export * from './googleAnalytics'
 export * from './googleSheets'

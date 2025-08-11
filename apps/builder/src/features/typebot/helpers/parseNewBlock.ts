@@ -23,6 +23,7 @@ import {
   defaultChatwootOptions,
   defaultChoiceInputOptions,
   defaultConditionContent,
+  defaultCrmWhatsflowOptions,
   defaultDateInputOptions,
   defaultEmailInputOptions,
   defaultEmbedBubbleContent,
@@ -177,6 +178,8 @@ const parseDefaultBlockOptions = (type: BlockWithOptionsType): BlockOptions => {
       return defaultWebhookOptions(createId())
     case IntegrationBlockType.EMAIL:
       return defaultSendEmailOptions
+    case IntegrationBlockType.CRM_WHATSFLOW:
+      return defaultCrmWhatsflowOptions
     case IntegrationBlockType.CHATWOOT:
       return defaultChatwootOptions
     case IntegrationBlockType.OPEN_AI:

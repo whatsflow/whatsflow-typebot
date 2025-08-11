@@ -28,6 +28,7 @@ import { InputBlockType } from './inputs/enums'
 import { pictureChoiceBlockSchema } from './inputs/pictureChoice'
 import {
   chatwootBlockSchema,
+  crmWhatsflowBlockSchema,
   googleAnalyticsBlockSchema,
   googleSheetsBlockSchema,
   makeComBlockSchema,
@@ -136,6 +137,7 @@ export const blockSchema = z.discriminatedUnion('type', [
   jumpBlockSchema,
   abTestBlockSchema,
   chatwootBlockSchema,
+  crmWhatsflowBlockSchema,
   googleAnalyticsBlockSchema,
   googleSheetsBlockSchema,
   makeComBlockSchema,

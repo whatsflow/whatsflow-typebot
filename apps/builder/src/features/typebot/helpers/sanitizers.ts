@@ -80,6 +80,8 @@ const sanitizeBlock =
               )) ?? 'default',
           },
         }
+      case IntegrationBlockType.CRM_WHATSFLOW:
+        return block
       default:
         return block
     }

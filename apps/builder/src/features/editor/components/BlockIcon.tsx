@@ -30,10 +30,7 @@ import { ScriptIcon } from '@/features/blocks/logic/script/components/ScriptIcon
 import { SetVariableIcon } from '@/features/blocks/logic/setVariable/components/SetVariableIcon'
 import { TypebotLinkIcon } from '@/features/blocks/logic/typebotLink/components/TypebotLinkIcon'
 import { WaitIcon } from '@/features/blocks/logic/wait/components/WaitIcon'
-import { IoMdSend } from 'react-icons/io'
-import { FaUserEdit, FaHeadphones } from 'react-icons/fa'
 import { Icon, IconProps, useColorModeValue } from '@chakra-ui/react'
-import { GiArtificialIntelligence } from 'react-icons/gi'
 import {
   BlockType,
   InputBlockType,
@@ -47,10 +44,12 @@ import {
   AiOutlineUnorderedList,
 } from 'react-icons/ai'
 import { BiShuffle } from 'react-icons/bi'
-import { BsDoorClosed } from 'react-icons/bs'
-import { FaRegHandPointUp } from 'react-icons/fa'
-import { TbFiles } from 'react-icons/tb'
+import { BsDoorClosed, BsWhatsapp } from 'react-icons/bs'
+import { FaHeadphones, FaRegHandPointUp, FaUserEdit } from 'react-icons/fa'
+import { GiArtificialIntelligence } from 'react-icons/gi'
+import { IoMdSend } from 'react-icons/io'
 import { LuLayoutTemplate } from 'react-icons/lu'
+import { TbFiles } from 'react-icons/tb'
 import { TiMessages } from 'react-icons/ti'
 
 type BlockIconProps = { type: BlockType } & IconProps
@@ -60,6 +59,7 @@ export const BlockIcon = ({ type, ...props }: BlockIconProps): JSX.Element => {
   const orange = useColorModeValue('orange.500', 'orange.300')
   const purple = useColorModeValue('purple.500', 'purple.300')
   const openAIColor = useColorModeValue('black', 'white')
+  const green = useColorModeValue('green.500', 'green.300')
 
   switch (type) {
     case BubbleBlockType.TEXT:
@@ -158,6 +158,9 @@ export const BlockIcon = ({ type, ...props }: BlockIconProps): JSX.Element => {
       return <OpenAILogo fill={openAIColor} {...props} />
     case IntegrationBlockType.PIXEL:
       return <PixelLogo {...props} />
+    case IntegrationBlockType.CRM_WHATSFLOW:
+      return <Icon as={BsWhatsapp} color={green} {...props} />
+
     case 'start':
       return <FlagIcon {...props} />
   }

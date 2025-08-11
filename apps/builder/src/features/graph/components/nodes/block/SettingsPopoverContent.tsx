@@ -19,6 +19,7 @@ import { PabblyConnectSettings } from '@/features/blocks/integrations/pabbly/com
 import { SendEmailSettings } from '@/features/blocks/integrations/sendEmail/components/SendEmailSettings'
 import { WebhookSettings } from '@/features/blocks/integrations/webhook/components/WebhookSettings'
 import { ZapierSettings } from '@/features/blocks/integrations/zapier/components/ZapierSettings'
+import { CrmWhatsflowSettings } from '@/features/blocks/integrations/crmWhatsflow/components/CrmWhatsflowSettings'
 import { AbTestSettings } from '@/features/blocks/logic/abTest/components/AbTestSettings'
 import { JumpSettings } from '@/features/blocks/logic/jump/components/JumpSettings'
 import { RedirectSettings } from '@/features/blocks/logic/redirect/components/RedirectSettings'
@@ -440,6 +441,14 @@ export const BlockSettings = ({
     case IntegrationBlockType.PIXEL: {
       return (
         <PixelSettings
+          options={block.options}
+          onOptionsChange={updateOptions}
+        />
+      )
+    }
+    case IntegrationBlockType.CRM_WHATSFLOW: {
+      return (
+        <CrmWhatsflowSettings
           options={block.options}
           onOptionsChange={updateOptions}
         />
