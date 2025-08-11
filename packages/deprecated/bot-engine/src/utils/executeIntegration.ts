@@ -3,7 +3,6 @@ import { executeGoogleAnalyticsBlock } from '@/features/blocks/integrations/goog
 import { executeGoogleSheetBlock } from '@/features/blocks/integrations/googleSheets'
 import { executeSendEmailBlock } from '@/features/blocks/integrations/sendEmail'
 import { executeWebhook } from '@/features/blocks/integrations/webhook'
-import { executeCrmWhatsflowBlock } from '@/features/blocks/integrations/crmWhatsflow'
 import { IntegrationState } from '@/types'
 import { IntegrationBlock, IntegrationBlockType } from '@typebot.io/schemas'
 
@@ -28,8 +27,6 @@ export const executeIntegration = ({
       return executeSendEmailBlock(block, context)
     case IntegrationBlockType.CHATWOOT:
       return executeChatwootBlock(block, context)
-    case IntegrationBlockType.CRM_WHATSFLOW:
-      return executeCrmWhatsflowBlock(block, context)
     default:
       return
   }

@@ -1,8 +1,8 @@
 import { TextInput } from '@/components/inputs'
 import { CodeEditor } from '@/components/inputs/CodeEditor'
 import { SwitchWithLabel } from '@/components/inputs/SwitchWithLabel'
-import { Stack } from '@chakra-ui/react'
 import { CrmWhatsflowOptions } from '@typebot.io/schemas'
+import { Stack } from '@chakra-ui/react'
 
 type Props = {
   options: CrmWhatsflowOptions
@@ -73,43 +73,43 @@ export const CrmWhatsflowSettings = ({ options, onOptionsChange }: Props) => {
   return (
     <Stack spacing={4}>
       <TextInput
-        label="Título:"
+        label="Título*:"
         onChange={handleTituloChange}
         defaultValue={options.titulo ?? ''}
         placeholder="Digite o título"
       />
       <TextInput
-        label="Nome:"
+        label="Nome*:"
         onChange={handleNomeChange}
         defaultValue={options.nome ?? ''}
         placeholder="Digite o nome"
       />
       <TextInput
-        label="User ID:"
+        label="User ID*:"
         onChange={handleUserIdChange}
         defaultValue={options.userId ?? ''}
         placeholder="Digite o User ID"
       />
       <TextInput
-        label="Email:"
+        label="Email*:"
         onChange={handleEmailChange}
         defaultValue={options.email ?? ''}
         placeholder="Digite o email"
       />
       <TextInput
-        label="URL:"
+        label="URL*:"
         onChange={handleUrlChange}
         defaultValue={options.url ?? ''}
         placeholder="Digite a URL"
       />
       <TextInput
-        label="Token:"
+        label="Token*:"
         onChange={handleTokenChange}
         defaultValue={options.token ?? ''}
         placeholder="Digite o token"
       />
       <TextInput
-        label="Estágio:"
+        label="Estágio*:"
         onChange={handleStagioChange}
         defaultValue={options.stagio ?? ''}
         placeholder="Digite o estágio"

@@ -3,14 +3,13 @@ import { blockBaseSchema } from '../baseSchemas'
 import { IntegrationBlockType } from './enums'
 
 export const crmWhatsflowOptionsSchema = z.object({
-  chatId: z.string().optional(),
-  titulo: z.string().optional(),
-  nome: z.string().optional(),
-  userId: z.string().optional(),
-  email: z.string().optional(),
-  url: z.string().optional(),
-  token: z.string().optional(),
-  stagio: z.string().optional(),
+  titulo: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  nome: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  userId: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  email: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  url: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  token: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
+  stagio: z.string().min(1, { message: 'Campo de preenchimento obrigatório' }),
   camp_pers: z
     .object({
       isEnabled: z.boolean().optional(),
@@ -27,7 +26,6 @@ export const crmWhatsflowBlockSchema = blockBaseSchema.merge(
 )
 
 export const defaultCrmWhatsflowOptions: CrmWhatsflowOptions = {
-  chatId: '',
   titulo: '',
   nome: '',
   userId: '',
