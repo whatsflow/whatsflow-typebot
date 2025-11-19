@@ -14,9 +14,7 @@ const variablesSchema = z
   .array(
     z.object({
       example: z.string().optional().or(z.array(z.string()).optional()),
-      format: z
-        .enum(['image', 'video', 'audio', 'document', 'text'])
-        .optional(),
+      format: z.string().optional(),
       type: z.string(),
       value: z.string().optional(),
     })
