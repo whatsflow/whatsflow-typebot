@@ -6,8 +6,8 @@ import { TagSearchInput } from '@/components/TagSearchInput'
 import { useTypebot } from '@/features/editor/providers/TypebotProvider'
 import { Select, Stack } from '@chakra-ui/react'
 import { Comparison, ComparisonOperators, Variable } from '@typebot.io/schemas'
-import { addDays, set, startOfWeek, parseISO, isValid } from 'date-fns'
-import { fromZonedTime, format } from 'date-fns-tz'
+import { addDays, isValid, parseISO, startOfWeek } from 'date-fns'
+import { format } from 'date-fns-tz'
 import { ptBR } from 'date-fns/locale'
 
 export const ComparisonItem = ({
@@ -58,14 +58,8 @@ export const ComparisonItem = ({
       const formattedValue = formatTime(value)
 
       if (formattedValue.length >= 5) {
-        const systemTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-        const [hours, minutes] = formattedValue.split(':').map(Number)
-        const utcDateTime = fromZonedTime(
-          set(new Date(), { hours, minutes }),
-          systemTimeZone
-        )
-
-        return onItemChange({ ...item, value: utcDateTime.toISOString() })
+        // 🎯 NOVA LÓGICA: Salvar apenas o horário, sem conversão timezone
+        return onItemChange({ ...item, value: formattedValue })
       }
     }
 
@@ -110,12 +104,18 @@ export const ComparisonItem = ({
             defaultValue={
               (item.comparisonOperator === ComparisonOperators.LATER_THAN ||
                 item.comparisonOperator === ComparisonOperators.SOONER_THAN) &&
-              item.value &&
-              isValid(parseISO(item.value))
-                ? format(parseISO(item.value), 'HH:mm', {
-                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                  })
-                : item.value ?? ''
+              item.value
+                ? // Se já é formato HH:mm, usa direto
+                  item.value.includes(':') && item.value.length === 5
+                  ? item.value
+                  : // Se é ISO string, converte para mostrar o horário correto
+                  isValid(parseISO(item.value))
+                  ? format(parseISO(item.value), 'HH:mm', {
+                      timeZone:
+                        Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    })
+                  : item.value
+                : ''
             }
             onChange={handleChangeValue}
             placeholder={parseValuePlaceholder(item.comparisonOperator)}
