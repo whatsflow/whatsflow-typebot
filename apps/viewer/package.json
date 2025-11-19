@@ -7,7 +7,7 @@
     "build": "cross-env ENVSH_ENV=.env.local bash ../../scripts/inject-runtime-env.sh next build",
     "build:docker": "next build",
     "build:env": "cd ../.. && cross-env ENVSH_ENV=./apps/viewer/.env.docker ENVSH_OUTPUT=./apps/viewer/public/__env.js bash scripts/inject-runtime-env.sh",
-    "vercel-build": "cd ../.. && pnpm install && cd apps/viewer && bash ../../scripts/inject-runtime-env.sh next build",
+    "vercel-build": "cd ../.. && pnpm install --ignore-scripts && cd apps/viewer && bash ../../scripts/inject-runtime-env.sh next build",
     "start": "next start -p 3001",
     "lint": "next lint",
     "test": "pnpm playwright test",
