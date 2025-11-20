@@ -5,6 +5,16 @@
       "outputs": ["dist/**", ".turbo/**"],
       "cache": false
     },
+    "builder#build": {
+      "dependsOn": ["^build", "@typebot.io/prisma#db:generate"],
+      "outputs": [".next/**", "dist/**", "build/**"],
+      "cache": false
+    },
+    "viewer#build": {
+      "dependsOn": ["^build", "@typebot.io/prisma#db:generate"],
+      "outputs": [".next/**", "dist/**", "build/**"],
+      "cache": false
+    },
     "lint": {
       "outputs": []
     },
