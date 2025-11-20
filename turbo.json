@@ -1,6 +1,10 @@
 {
   "baseBranch": "origin/main",
   "pipeline": {
+    "@typebot.io/schemas#build": {
+      "outputs": ["dist/**", ".turbo/**"],
+      "cache": false
+    },
     "lint": {
       "outputs": []
     },
