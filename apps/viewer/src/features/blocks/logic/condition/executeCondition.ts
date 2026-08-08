@@ -9,7 +9,7 @@ import {
   LogicalOperator,
   Variable,
 } from '@typebot.io/schemas'
-import { getDay, isBefore, parseISO, setDay, set, isAfter } from 'date-fns'
+import { getDay, setDay } from 'date-fns'
 
 export const executeCondition =
   (variables: Variable[]) =>
@@ -164,44 +164,57 @@ const executeComparison =
 
         return tags.some((tag) => tag.title === value)
       }
+
       case ComparisonOperators.LATER_THAN: {
         if (!value || typeof value !== 'string') return false
 
-        const currentDateTime = set(new Date(), {
-          hours: new Date().getHours(),
-          minutes: new Date().getMinutes(),
-          seconds: 0,
-          milliseconds: 0,
-        })
+        const now = new Date()
+        const currentTime = now.getHours() * 60 + now.getMinutes()
 
-        const valueDateTime = set(new Date(), {
-          hours: parseISO(value).getHours(),
-          minutes: parseISO(value).getMinutes(),
-          seconds: 0,
-          milliseconds: 0,
-        })
+        let timeString = value
 
-        return isAfter(currentDateTime, valueDateTime)
+        if (value.includes('T')) {
+          const timePart = value.split('T')[1]
+          timeString = timePart.substring(0, 5)
+        } else if (value.includes(':') && value.length === 5) {
+          timeString = value
+        } else {
+          return false
+        }
+
+        const [hours, minutes] = timeString.split(':').map(Number)
+        if (isNaN(hours) || isNaN(minutes)) return false
+
+        const valueTime = hours * 60 + minutes
+
+        return currentTime > valueTime
       }
+
       case ComparisonOperators.SOONER_THAN: {
         if (!value || typeof value !== 'string') return false
 
-        const currentDateTime = set(new Date(), {
-          hours: new Date().getHours(),
-          minutes: new Date().getMinutes(),
-          seconds: 0,
-          milliseconds: 0,
-        })
+        const now = new Date()
+        const currentTime = now.getHours() * 60 + now.getMinutes()
 
-        const valueDateTime = set(new Date(), {
-          hours: parseISO(value).getHours(),
-          minutes: parseISO(value).getMinutes(),
-          seconds: 0,
-          milliseconds: 0,
-        })
+        let timeString = value
 
-        return isBefore(currentDateTime, valueDateTime)
+        if (value.includes('T')) {
+          const timePart = value.split('T')[1]
+          timeString = timePart.substring(0, 5)
+        } else if (value.includes(':') && value.length === 5) {
+          timeString = value
+        } else {
+          return false
+        }
+
+        const [hours, minutes] = timeString.split(':').map(Number)
+        if (isNaN(hours) || isNaN(minutes)) return false
+
+        const valueTime = hours * 60 + minutes
+
+        return currentTime < valueTime
       }
+
       case ComparisonOperators.DAY_OF_THE_WEEK: {
         if (!value || typeof value !== 'string') return false
 
