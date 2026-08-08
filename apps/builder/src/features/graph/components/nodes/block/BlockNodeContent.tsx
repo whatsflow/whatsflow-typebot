@@ -25,6 +25,7 @@ import { PabblyConnectContent } from '@/features/blocks/integrations/pabbly/comp
 import { SendEmailContent } from '@/features/blocks/integrations/sendEmail/components/SendEmailContent'
 import { WebhookContent } from '@/features/blocks/integrations/webhook/components/WebhookContent'
 import { ZapierContent } from '@/features/blocks/integrations/zapier/components/ZapierContent'
+import { CrmWhatsflowContent } from '@/features/blocks/integrations/crmWhatsflow/components/CrmWhatsflowContent'
 
 import EndNodeContent from '@/features/blocks/logic/end/components/EndNodeContent'
 import { JumpNodeBody } from '@/features/blocks/logic/jump/components/JumpNodeBody'
@@ -264,6 +265,9 @@ export const BlockNodeContent = ({ block, indices }: Props): JSX.Element => {
     }
     case IntegrationBlockType.PIXEL: {
       return <PixelNodeBody options={block.options} />
+    }
+    case IntegrationBlockType.CRM_WHATSFLOW: {
+      return <CrmWhatsflowContent block={block} />
     }
     case 'start': {
       return <Text>Início</Text>

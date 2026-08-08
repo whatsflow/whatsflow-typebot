@@ -291,6 +291,11 @@ export const BlocksSideBar = () => {
               type={IntegrationBlockType.EMAIL}
               onMouseDown={handleMouseDown}
             />
+
+            <BlockCard
+              type={IntegrationBlockType.CRM_WHATSFLOW}
+              onMouseDown={handleMouseDown}
+            />
           </SimpleGrid>
         </Stack>
 

@@ -1,4 +1,5 @@
 import { executeChatwootBlock } from '@/features/blocks/integrations/chatwoot/executeChatwootBlock'
+import { executeCrmWhatsflowBlock } from '@/features/blocks/integrations/crmWhatsflow/executeCrmWhatsflowBlock'
 import { executeGoogleAnalyticsBlock } from '@/features/blocks/integrations/googleAnalytics/executeGoogleAnalyticsBlock'
 import { executeGoogleSheetBlock } from '@/features/blocks/integrations/googleSheets/executeGoogleSheetBlock'
 import { executeOpenAIBlock } from '@/features/blocks/integrations/openai/executeOpenAIBlock'
@@ -33,5 +34,7 @@ export const executeIntegration =
         return executeOpenAIBlock(state, block)
       case IntegrationBlockType.PIXEL:
         return executePixelBlock(state, block)
+      case IntegrationBlockType.CRM_WHATSFLOW:
+        return executeCrmWhatsflowBlock(state, block)
     }
   }

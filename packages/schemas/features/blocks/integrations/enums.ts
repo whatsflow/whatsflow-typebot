@@ -9,4 +9,5 @@ export enum IntegrationBlockType {
   PABBLY_CONNECT = 'Pabbly',
   CHATWOOT = 'Chatwoot',
   PIXEL = 'Pixel',
+  CRM_WHATSFLOW = 'CRM_WHATSFLOW',
 }

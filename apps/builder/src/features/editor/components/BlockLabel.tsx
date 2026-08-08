@@ -118,6 +118,8 @@ export const BlockLabel = ({ type }: Props): JSX.Element => {
 
     case IntegrationBlockType.EMAIL:
       return <Text fontSize="sm">Email</Text>
+    case IntegrationBlockType.CRM_WHATSFLOW:
+      return <Text fontSize="sm">WhatsFlow</Text>
     // case IntegrationBlockType.ZAPIER:
     //   return <Text fontSize="sm">Zapier</Text>
     // case IntegrationBlockType.MAKE_COM:
